@@ -42,12 +42,14 @@ function check(inputWord) {
 
 		if (index === inputWord.length && node[""]) {
 			objs.push(node[""]);
-			node = trie;
+			node = periodicTableTrie;
 		}
 
 	}
 
-	return objs.reduce((acc, obj) => acc + obj['symbol'].length, 0) === inputWord.length ? objs : [];
+	return objs.reduce((acc, obj) => acc + obj['symbol'].length, 0) === inputWord.length
+		? objs
+		: [];
 }
 
 // function lookup(elementSymbol) {
