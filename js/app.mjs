@@ -1,4 +1,4 @@
-import Speller from "./speller.js";
+import Speller from "./speller.mjs";
 
 
 if (/complete|interactive|loaded/.test(document.readyState)) {
@@ -55,7 +55,8 @@ function ready(){
 		wordSpellingEl.innerHTML = "";
 
 		for (let symbol of symbols) {
-			let elementEntry = Speller.lookup(symbol);
+			// let elementEntry = Speller.lookup(symbol);
+			let elementEntry = symbol;
 			let elementDiv = document.createElement("div");
 			elementDiv.className = "element";
 			elementDiv.innerHTML = `
