@@ -5,11 +5,11 @@ export default {
 	// lookup,
 };
 
-let trie = {};
+let periodicTableTrie = {};
 
 for (let element of elements) {
 	let symbol = element.symbol.toLowerCase();
-	let node = trie;
+	let node = periodicTableTrie;
 	for (let char of symbol) {
 		node[char] = node[char] || {};
 		node = node[char];
@@ -23,7 +23,7 @@ function check(inputWord) {
 	// symbol objects if so (empty array otherwise)
 
 	let index = 0;
-	let node = trie;
+	let node = periodicTableTrie;
 	let objs = []
 
 	while (index < inputWord.length) { 
@@ -34,7 +34,7 @@ function check(inputWord) {
 		} else {
 			if (node[""]) {
 				objs.push(node[""]);
-				node = trie;
+				node = periodicTableTrie;
 			} else {
 				break;
 			}
@@ -49,7 +49,6 @@ function check(inputWord) {
 
 	return objs.reduce((acc, obj) => acc + obj['symbol'].length, 0) === inputWord.length ? objs : [];
 }
-console.log(check('accessibilities'))
 
 // function lookup(elementSymbol) {
 // 	// TODO: return the element entry based on specified
