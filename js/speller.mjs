@@ -36,7 +36,7 @@ function check(inputWord) {
 				objs.push(node[""]);
 				node = periodicTableTrie;
 			} else {
-				break;
+				return [];
 			}
 		}
 
@@ -47,9 +47,7 @@ function check(inputWord) {
 
 	}
 
-	return objs.reduce((acc, obj) => acc + obj['symbol'].length, 0) === inputWord.length
-		? objs
-		: [];
+	return objs;
 }
 
 // function lookup(elementSymbol) {
